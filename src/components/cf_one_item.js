@@ -39,7 +39,7 @@ export default function CfOneItem(props) {
 
   const handleClickDeletion = (name) => {
     let tempProps = {...copyProps}
-    delete tempProps.user.custom_field[name]
+    tempProps.user.custom_field[name] = undefined
     setCopyProps(tempProps)
     setCustomFieldModified(true)
   };
@@ -80,9 +80,9 @@ export default function CfOneItem(props) {
           </ListItemIcon>
           <ListItemText primary={label} />
             {getField(type, UserCustomFields[name], name)}
-            <IconButton aria-label="delete" color="primary" onClick={() => handleClickDeletion(name)}>
+            {/* <IconButton aria-label="delete" color="primary" onClick={() => handleClickDeletion(name)}>
                 <DeleteIcon />
-            </IconButton>
+            </IconButton> */}
         </ListItem>
         <Divider/>
       </>
